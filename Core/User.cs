@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Core
 {
@@ -8,11 +9,16 @@ namespace Core
         private string _firstName;
         private string _lastName; 
         private DateTime _birthDate; 
-
-
+        [Key]
+        public int Id
+        {
+            get { return _id ; }
+            set {_id = value ; }
+        }  
         public string FirstName
         {
             get { return _firstName ; }
+            set {_firstName = value ; }
         }  
 
         public string LastName
@@ -25,7 +31,9 @@ namespace Core
             get { return _birthDate ; }
         }
 
-
+        public User()
+        {
+        }
         public User(string firstName, string lastName, DateTime birthDate)
         {
             this._firstName = firstName;

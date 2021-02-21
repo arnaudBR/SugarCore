@@ -27,8 +27,14 @@ namespace SugarWS
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddDbContext<UserContext>(opt =>
-            //                                    opt.UseModel(typeof(UserM));
+            //  services.AddDbContext<UserContext>(opt =>
+            //                                    opt.UseModel(typeof(UserContext));
+
+            // services.AddDbContext<UserContext>();
+
+             services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseMySQL(Configuration.GetConnectionString("ApplicationDbContext")));
+            
             services.AddControllers();
         }
 
