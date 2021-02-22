@@ -17,6 +17,7 @@ namespace SugarWS
 {
     public class Startup
     {
+        private string _bddconnectionString = null;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -27,13 +28,10 @@ namespace SugarWS
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //  services.AddDbContext<UserContext>(opt =>
-            //                                    opt.UseModel(typeof(UserContext));
-
-            // services.AddDbContext<UserContext>();
+            _bddconnectionString = Configuration["Sugar:ConnectionString"];
 
              services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseMySQL(Configuration.GetConnectionString("ApplicationDbContext")));
+                options.UseMySQL(_bddconnectionString));
             
             services.AddControllers();
         }

@@ -23,11 +23,6 @@ namespace SugarWS.Controllers
         [HttpGet]
         public Core.User Get(int id)
         {
-            // if(id ==1)
-            //     return new Core.User("Eden", "Martin",DateTime.Now);
-            // else
-            //     return new Core.User("Jean", "Valjean",DateTime.Now);
-
             Core.User user = _context.User
                     .Single(u => u.Id == id);
             return user;
