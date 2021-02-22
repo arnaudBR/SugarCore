@@ -34,9 +34,11 @@ namespace SugarWS.Controllers
         }
 
         [HttpPost]
-        public Core.User Create(string firstName, string lastName)
+        public void Create(string firstName, string lastName)
         {
-            return new Core.User(firstName,lastName ,DateTime.Now);
+            Core.User user = new Core.User(firstName,lastName ,DateTime.Now);
+            _context.Add(user);
+            _context.SaveChanges();
         }
     }
 }

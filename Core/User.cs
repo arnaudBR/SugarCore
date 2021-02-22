@@ -24,11 +24,13 @@ namespace Core
         public string LastName
         {
             get { return _lastName ; }
+            set {_lastName = value ; }
         }  
 
         public DateTime BirthDate
         {
             get { return _birthDate ; }
+            set {_birthDate = value ; }
         }
 
         public User()
